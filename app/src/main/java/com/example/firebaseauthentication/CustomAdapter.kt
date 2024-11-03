@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(private val list: List<String>):
+class CustomAdapter(private val list: MutableList<ContactData?>):
     RecyclerView.Adapter<CustomAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val emailTV: TextView = itemView.findViewById(R.id.emailTV)
+        val nameTV: TextView = itemView.findViewById(R.id.nameTV)
+        val phoneTV: TextView = itemView.findViewById(R.id.phoneTV)
 
     }
 
@@ -23,8 +24,9 @@ class CustomAdapter(private val list: List<String>):
     override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        val email = list[position]
-        holder.emailTV.text = email
+        val contact = list[position]
+        holder.nameTV.text = contact?.name
+        holder.phoneTV.text = contact?.phone
 
     }
 }

@@ -16,8 +16,8 @@
         android:label="Вход"
         tools:layout="@layout/fragment_sign_in" />
     <fragment
-        android:id="@+id/emailFragment"
-        android:name="com.example.firebaseauthentication.EmailFragment"
-        android:label="Почта"
-        tools:layout="@layout/fragment_email" />
+        android:id="@+id/contactFragment"
+        android:name="com.example.firebaseauthentication.ContactFragment"
+        android:label="Контакты"
+        tools:layout="@layout/fragment_contact" />
 </navigation>

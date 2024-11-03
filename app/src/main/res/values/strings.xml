@@ -5,7 +5,7 @@
     <string name="fragment_registration">fragment_registration</string>
     <string name="fragment_sign_in">fragment_sign_in</string>
     <string name="fragment_email">fragment_email</string>
-    <string name="emailFragmentTitle">Почта</string>
+    <string name="contactFragmentTitle">Контакты</string>
     <string name="signInFragmentTitle">Вход</string>
     <string name="registrationFragmentTitle">Регистрация</string>
     <string name="loginETHint">Email</string>
@@ -15,4 +15,9 @@
     <string name="iHaveAccountTVText">Уже есть аккаунт</string>
     <string name="logInBTText">Войти</string>
     <string name="redirectTVText">Необходима регистрация</string>
+    <string name="nameETHint">Введите имя</string>
+    <string name="phoneETHint">Введите номер телефона</string>
+    <string name="saveBTText">Сохранить</string>
+    <string name="exitBTText">Выход</string>
+    <string name="backBTText">Назад</string>
 </resources>

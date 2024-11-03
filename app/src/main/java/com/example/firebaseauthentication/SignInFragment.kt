@@ -1,6 +1,5 @@
 package com.example.firebaseauthentication
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,10 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE
-import com.example.firebaseauthentication.databinding.FragmentRegistrationBinding
 import com.example.firebaseauthentication.databinding.FragmentSignInBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 
 
 class SignInFragment : Fragment() {
@@ -41,37 +38,35 @@ class SignInFragment : Fragment() {
         }
 
         binding.redirectTV.setOnClickListener {
-            val transaction = fragmentManager?.beginTransaction()
-            transaction?.replace(R.id.navHostFragment, RegistrationFragment())
-            transaction?.addToBackStack(null)
-            transaction?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            transaction?.commit()
+            val transaction = (activity as FragmentActivity).supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.navHostFragment, RegistrationFragment())
+            transaction.addToBackStack(null)
+            transaction.setTransition(TRANSIT_FRAGMENT_FADE)
+            transaction.commit()
         }
     }
 
     private fun login() {
         val email = binding.loginET.text.toString()
         val pass = binding.passwordET.text.toString()
-        var check = false
 
         auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(requireActivity()){
-            if (it.isSuccessful){
-                val transaction = (activity as FragmentActivity).supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.navHostFragment, EmailFragment())
-                transaction.addToBackStack(null)
-                transaction.setTransition(TRANSIT_FRAGMENT_FADE)
-                transaction.commit()
-
-
-            }
-            else{
+            if (!it.isSuccessful){
                 Toast.makeText(
                     requireContext(),
                     "Не удалось войти в систему",
                     Toast.LENGTH_SHORT).show()
                 binding.redirectTV.visibility = View.VISIBLE
-
+                return@addOnCompleteListener
+            }
+            else{
+                val transaction = (activity as FragmentActivity).supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.navHostFragment, ContactFragment())
+                transaction.addToBackStack(null)
+                transaction.setTransition(TRANSIT_FRAGMENT_FADE)
+                transaction.commit()
             }
         }
     }

@@ -13,7 +13,8 @@
         android:title="@string/signInFragmentTitle"/>
 
     <item
-        android:id="@+id/emailFragment"
+        android:id="@+id/contactFragment"
         android:icon="@drawable/ic_email"
-        android:title="@string/emailFragmentTitle"/>
+        android:visible="false"
+        android:title="@string/contactFragmentTitle"/>
 </menu>

@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.registrationFragment,
                 R.id.signInFragment,
-                R.id.emailFragment
+                R.id.contactFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

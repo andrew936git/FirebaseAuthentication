@@ -10,16 +10,36 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_20dp"
         app:cardCornerRadius="@dimen/_20dp"
+        android:backgroundTint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/emailTV"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_24sp"/>
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_6dp">
+
+            <TextView
+                android:id="@+id/nameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_6dp"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_24sp"/>
+
+            <TextView
+                android:id="@+id/phoneTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_6dp"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_24sp"/>
+
+        </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 
